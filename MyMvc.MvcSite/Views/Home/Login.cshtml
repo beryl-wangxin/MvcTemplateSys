@@ -1,0 +1,87 @@
+﻿@{ 
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>登录</title>
+    @Styles.Render("~/Content/css")
+    <link href="~/Content/Site/Home/login.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="page page-login">
+        <div class="container d-flex align-items-center">
+            <div class="form-holder has-shadow">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="info d-flex align-items-center">
+                            <div class="content">
+                                <div class="logo">
+                                    <h1>欢迎登录</h1>
+                                </div>
+                                <p>后台管理系统</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 bg-white">
+                        <div class="form d-flex align-items-center">
+                            <div class="content">
+                                <form action="/home/login" id="loginform" class="form-validate" novalidate="novalidate" method="post">
+                                    <div class="form-group">
+                                        <input type="text" name="userId" class="input-material" placeholder="用户名" required data-msg="请输入用户名">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" name="password" class="input-material" placeholder="密码" required data-msg="请输入密码">
+                                    </div>
+                                    <button id="login" type="submit" class="btn btn-primary">登录</button>
+                                    <div style="margin-top: -40px;">
+                                        <div  style="float: right;">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" name="checkcode"> 记住密码
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    <script src="~/Scripts/Site/default.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('#loginform').validate({
+                errorElement: 'div',
+                errorClass: 'is-invalid',
+                validClass: 'is-valid',
+                errorPlacement: function (error, element) {
+                    error.addClass("invalid-feedback");
+                    console.log(element);
+                    if (element.prop("type") === "checkbox") {
+                        error.insertAfter(element.siblings("label"));
+                    } else {
+                        error.insertAfter(element);
+                    }
+                },
+                submitHandler: function (form) {
+                    $(form).ajaxSubmit(function (data) {
+                        console.log(data);
+                    })
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>

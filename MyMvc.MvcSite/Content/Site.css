@@ -1,0 +1,69 @@
+﻿
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.page {
+    background: #eef5f9
+}
+input.input-material {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+    outline: none;
+}
+
+input.input-material:focus {
+    /*border: 0;*/
+    border-bottom: 1px solid #796aee;
+}
+
+    input.input-material.is-invalid {
+        border-color: #dc3545 !important
+    }
+
+    input.input-material:focus {
+        border-color: #796aee
+    }
+
+    input.input-material ~ label {
+        color: #aaa;
+        position: absolute;
+        top: 14px;
+        left: 0;
+        cursor: text;
+        -webkit-transition: all .2s;
+        transition: all .2s;
+        font-weight: 300
+    }
+
+        input.input-material ~ label.active {
+            font-size: .8rem;
+            top: -10px;
+            color: #796aee
+        }
+
+    input.input-material.is-invalid ~ label {
+        color: #dc3545
+    }
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    /*padding-left: 15px;
+    padding-right: 15px;*/
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    /*white-space: normal;*/
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    /*max-width: 280px;*/
+}
