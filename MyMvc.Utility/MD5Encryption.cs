@@ -11,6 +11,12 @@ namespace MyMvc.Utility
     {
         private const string sign = "YFSVJFDFLSFJ";
         
+        /// <summary>
+        /// 加密
+        /// </summary>
+        /// <param name="str">加密串</param>
+        /// <param name="codelength">16/32/64</param>
+        /// <returns></returns>
         public static string Md5(string str,int codelength = 32)
         {
             var key = string.Empty;
